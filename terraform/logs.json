@@ -1,0 +1,8 @@
+{
+  "AccessLog": {
+    "Enabled": true,
+    "S3BucketName": "fake-video-studio",
+    "EmitInterval": 1,
+    "S3BucketPrefix": "logs"
+  }
+}

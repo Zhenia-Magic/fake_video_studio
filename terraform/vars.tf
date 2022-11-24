@@ -6,10 +6,12 @@ variable "aws_region" {
 
 variable "aws_access_key_id" {
   type        = string
+  default     = "AKIAYMT4DKDEKEUPBXXH"
 }
 
 variable "aws_secret_access_key" {
   type        = string
+  default     = "LfT95SO7VERzuYMQ+zy/isu1QkSREJUqSLYKDXwe"
 }
 
 variable "aws_zones" {
@@ -18,11 +20,9 @@ variable "aws_zones" {
   default     = ["us-west-2a", "us-west-2b"]
 }
 
-variable "cloudflare_account_id" {
-  type        = string
-}
 
-variable "cloudflare_token" {
+/*
+variable "cloudflare_account_id" {
   type        = string
 }
 
@@ -34,3 +34,4 @@ variable "cloudflare_domain" {
 variable "cloudflare_key" {
   type        = string
 }
+*/

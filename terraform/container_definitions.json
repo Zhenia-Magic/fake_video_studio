@@ -1,0 +1,15 @@
+[{
+  "name": "fake-video-studio",
+  "command": ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8080"],
+  "cpu": 2048,
+
+  "environment": [
+    { "name": "MESSAGE", "value": "Welcome to Fake Video Studio" }
+  ],
+
+  "image": "576859623624.dkr.ecr.us-west-2.amazonaws.com/fake-video-studio:v0.1.0",
+
+  "portMappings": [
+    { "containerPort": 8080, "protocol": "tcp" }
+  ]
+}]
