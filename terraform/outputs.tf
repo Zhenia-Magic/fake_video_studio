@@ -1,3 +1,7 @@
+/*
+ * Code to define outputs
+ */
+
 output "aws_zones" {
   value = [var.aws_zones]
 }
@@ -11,7 +15,7 @@ output "ecs_cluster_name" {
 }
 
 output "ecsServiceRole_arn" {
-  value = aws_iam_role.ecs.arn
+  value = aws_iam_role.ecs-service-role.arn
 }
 
 output "private_subnet_ids" {
@@ -30,14 +34,10 @@ output "vpc_id" {
   value = aws_vpc.vpc.id
 }
 
-output "ecr_repository_worker_endpoint" {
-  value = aws_ecr_repository.default.repository_url
-}
-
 output "dbusername" {
-  value = aws_db_instance.default.username
+  value = aws_db_instance.production.username
 }
 
 output "db_endpoint" {
-  value = aws_db_instance.default.endpoint
+  value = aws_db_instance.production.endpoint
 }

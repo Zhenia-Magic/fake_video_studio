@@ -1,3 +1,7 @@
+/*
+ * Code to set up backend service for the terraform configuration
+ */
+
 terraform {
   backend "s3" {
     bucket         = "fake-video-studio"

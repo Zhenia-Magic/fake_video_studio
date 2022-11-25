@@ -1,3 +1,7 @@
+/*
+ * Code to identify providers
+ */
+
 terraform {
   required_providers {
     aws = {

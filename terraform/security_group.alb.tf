@@ -1,25 +1,35 @@
+/*
+ * Code to create Security Group for the Application Load Balancer
+ */
+
 resource "aws_security_group" "alb" {
-  description = "security-group--alb"
+  name = "security-group-alb"
+  description = "security-group-alb"
 
   egress {
-    cidr_blocks = ["0.0.0.0/0"]
     from_port   = 0
-    protocol    = "-1"
     to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
-    cidr_blocks = ["0.0.0.0/0"]
     from_port   = 80
-    protocol    = "tcp"
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
-  name = "security-group--alb"
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   tags = {
     Env  = "production"
-    Name = "security-group--alb"
+    Name = "security-group-alb"
   }
 
   vpc_id = aws_vpc.vpc.id

@@ -1,5 +1,5 @@
 /*
- * Code to initialize VPC
+ * Code to initialize Virtual Private Cloud
  */
 
 resource "aws_vpc" "vpc" {

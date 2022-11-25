@@ -1,3 +1,7 @@
+/*
+ * Code to declare the variables for terraform
+ */
+
 variable "aws_region" {
   type        = string
   description = "Region to use"
@@ -19,19 +23,3 @@ variable "aws_zones" {
   description = "List of availability zones to use"
   default     = ["us-west-2a", "us-west-2b"]
 }
-
-
-/*
-variable "cloudflare_account_id" {
-  type        = string
-}
-
-variable "cloudflare_domain" {
-  type        = string
-  default     = "evgeniia-cloud-tutorial.site"
-}
-
-variable "cloudflare_key" {
-  type        = string
-}
-*/

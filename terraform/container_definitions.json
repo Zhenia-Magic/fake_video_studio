@@ -1,15 +1,25 @@
 [{
   "name": "fake-video-studio",
-  "command": ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8080"],
-  "cpu": 2048,
-
-  "environment": [
-    { "name": "MESSAGE", "value": "Welcome to Fake Video Studio" }
-  ],
-
-  "image": "576859623624.dkr.ecr.us-west-2.amazonaws.com/fake-video-studio:v0.1.0",
-
+  "command": ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "80"],
+  "cpu": 10,
+  "memory": 512,
+  "image": "576859623624.dkr.ecr.us-west-2.amazonaws.com/fake-video-studio:latest",
+  "essential": true,
+  "links": [],
   "portMappings": [
-    { "containerPort": 8080, "protocol": "tcp" }
-  ]
+    {
+      "containerPort": 80,
+      "protocol": "tcp",
+      "hostPort": 0
+    }
+  ],
+  "environment": [],
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/ecs/fake-video-studio",
+      "awslogs-region": "${region}",
+      "awslogs-stream-prefix": "fake-video-studio-log-stream"
+    }
+  }
 }]

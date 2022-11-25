@@ -3,6 +3,7 @@
  */
 
 resource "aws_security_group" "rds_sg" {
+  name = "security-group-db-instance"
   description = "security-group-db-instance"
 
   egress {
@@ -13,13 +14,11 @@ resource "aws_security_group" "rds_sg" {
   }
 
   ingress {
-    cidr_blocks = ["0.0.0.0/0"]
     from_port   = 5432
     protocol    = "tcp"
     to_port     = 5432
+    security_groups = [aws_security_group.ecs.id]
   }
-
-  name = "security-group-db-instance"
 
   tags = {
     Name               = "security-group-db-instance"

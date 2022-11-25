@@ -2,10 +2,17 @@
  * Code to create task definition
  */
 
+data "template_file" "app" {
+  template = file("container_definitions.json")
+
+  vars = {
+    region = var.aws_region
+  }
+}
+
+
 resource "aws_ecs_task_definition" "td" {
   family                   = "fake-video-studio"
-  container_definitions    = file("container_definitions.json")
-  network_mode             = "host"
-  requires_compatibilities = ["EC2"]
-  memory                   = "2048"
+  container_definitions    = data.template_file.app.rendered
+  depends_on               = [aws_db_instance.production]
 }

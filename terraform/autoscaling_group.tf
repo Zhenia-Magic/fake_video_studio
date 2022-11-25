@@ -4,15 +4,14 @@
 
 resource "aws_autoscaling_group" "asg" {
   name                      = "as_group"
-  vpc_zone_identifier       = aws_subnet.public_subnet.*.id
+  vpc_zone_identifier       = aws_subnet.private_subnet.*.id
   min_size                  = 1
-  max_size                  = 2
-  desired_capacity          = 1
+  max_size                  = 3
+  desired_capacity          = 2
   launch_configuration      = aws_launch_configuration.aws_conf.id
   health_check_type         = "EC2"
   health_check_grace_period = 120
   default_cooldown          = 30
-  target_group_arns         = [aws_alb_target_group.default.arn]
   termination_policies      = ["OldestInstance"]
 
   lifecycle {
