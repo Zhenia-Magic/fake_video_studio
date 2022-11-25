@@ -19,7 +19,7 @@ repository and push the docker image there.
    terraform apply
 ```
 
-## How to destroy the infrastracture
+## How to destroy the infrastructure
 
 Run the following command:
 
