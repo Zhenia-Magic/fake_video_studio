@@ -7,6 +7,7 @@ data "template_file" "app" {
 
   vars = {
     region = var.aws_region
+    ecr_repository = var.aws_ecr_repo
   }
 }
 

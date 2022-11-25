@@ -3,7 +3,7 @@
   "command": ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "80"],
   "cpu": 10,
   "memory": 512,
-  "image": "576859623624.dkr.ecr.us-west-2.amazonaws.com/fake-video-studio:latest",
+  "image": "${ecr_repository}",
   "essential": true,
   "links": [],
   "portMappings": [

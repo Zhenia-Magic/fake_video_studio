@@ -10,16 +10,18 @@ variable "aws_region" {
 
 variable "aws_access_key_id" {
   type        = string
-  default     = "AKIAYMT4DKDEKEUPBXXH"
 }
 
 variable "aws_secret_access_key" {
   type        = string
-  default     = "LfT95SO7VERzuYMQ+zy/isu1QkSREJUqSLYKDXwe"
 }
 
 variable "aws_zones" {
   type        = list(string)
   description = "List of availability zones to use"
   default     = ["us-west-2a", "us-west-2b"]
+}
+
+variable "aws_ecr_repo" {
+  type        = string
 }
