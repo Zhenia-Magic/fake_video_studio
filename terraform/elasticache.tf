@@ -4,7 +4,7 @@
 
 resource "aws_elasticache_subnet_group" "elasticache_subnet" {
   name       = "fake-video-studio-cache-subnet"
-  subnet_ids = aws_subnet.public_subnet.*.id
+  subnet_ids = aws_subnet.private_subnet.*.id
 }
 
 resource "aws_elasticache_replication_group" "rep_group" {
